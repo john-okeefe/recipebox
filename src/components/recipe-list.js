@@ -3,6 +3,17 @@ import Recipe from './recipe'
 
 const RecipeList = (props) => {
   return (
-    <Recipe />
+    <div>
+      {props.recipes.map(x => {
+        return (
+          <div key={x.id}>
+            <div>{x.recipeName}</div>
+            <Recipe ingredients={x.ingredients} />
+          </div>
+        )
+      })}
+    </div>
   )
 }
+
+export default RecipeList;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import RecipeList from './components/recipe-list';
+import RecipeForm from './components/recipe-form/recipe-form';
 
 class App extends Component {
   constructor(props){
@@ -8,20 +9,45 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state={
-      recipeName: "",
-      ingredients: []
+      recipes: [
+        {
+          "id": "01",
+          "recipeName": "Banana Pudding",
+          "ingredients": ["cream cheese", "condensed milk", "pudding mix", "milk", "vanilla extract", "whipped topping", "bananas", "vanilla wafers"]
+        },
+        {
+          "id": "02",
+          "recipeName": "Baked Buffalo Chicken Dip",
+          "ingredients": ["rotisserie chicken", "cream cheese", "Frank's RedHot", "Pepper Jack cheese", "blue cheese dressing", "crumbled blue cheese", "seafood seasoning", "cayenne pepper", "shredded pepper Jack cheese", "cayenne pepper garnish"]
+        },
+        {
+          "id": "03",
+          "recipeName": "Too Much Chocolate Cake",
+          "ingredients": ["devil's food cake mix", "chocolate pudding mix", "sour cream", "vegetable oil", "eggs", "warm water", "semisweet chocolate chips"]
+        }
+      ]
     }
   }
+
 
   render() {
     return (
       <div className="App">
         <div className="recipes">
-          <RecipeList />
+          <RecipeList recipes={this.state.recipes} />
           <button>Add Recipe</button>
         </div>
+        <RecipeForm recipes={this.state.recipes} />
       </div>
     );
+  }
+
+  handleChange(e) {
+    this.setState({text: e.target.value});
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
   }
 }
 

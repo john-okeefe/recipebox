@@ -1,10 +1,15 @@
 import React from 'react';
-import Ingredients from './ingredients';
 
-const Recipe = () => {
+const Recipe = (props) => {
   return (
-    <Ingredients />
-    <button>Delete</button>
-    <button>Edit</button>
+    <div>
+      <div className="ingredients">
+        {props.ingredients.map((x, index) => <li key={index}>{x}</li>)}
+      </div>
+      <button>Delete</button>
+      <button>Edit</button>
+    </div>
   )
 }
+
+export default Recipe;
