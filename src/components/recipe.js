@@ -4,7 +4,7 @@ const Recipe = (props) => {
   return (
     <div>
       <div className="ingredients">
-        {props.ingredients.map((x, index) => <li key={index}>{x}</li>)}
+        {props.ingredients.map((x, index) => <li key={x}>{x}</li>)}
       </div>
       <button>Delete</button>
       <button>Edit</button>
