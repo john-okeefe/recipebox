@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import RecipeName from './recipe-name'
 import IngredientsInput from './ingredients-input'
 
-
  class RecipeForm extends Component {
    constructor(props){
      super(props);
