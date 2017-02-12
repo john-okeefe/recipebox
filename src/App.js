@@ -6,8 +6,6 @@ import RecipeForm from './components/recipe-form/recipe-form';
 class App extends Component {
   constructor(props){
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.state={
       recipes: [
         {
@@ -33,21 +31,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {console.log(this.state)}
         <div className="recipes">
           <RecipeList recipes={this.state.recipes} />
           <button>Add Recipe</button>
         </div>
-        <RecipeForm recipes={this.state.recipes} />
+        <RecipeForm addRecipeToState={(id, recipeName, ingredients) => {
+            console.log(this)
+           return this.setState({
+              recipes: this.state.recipes.concat({ id, recipeName, ingredients })
+            })} } />
       </div>
     );
-  }
-
-  handleChange(event) {
-    this.setState({text: event.target.value});
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
   }
 }
 

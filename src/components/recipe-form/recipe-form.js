@@ -20,16 +20,16 @@ let ingredientList;
 
      // this.handleSubmit = this.handleSubmit.bind(this);
    }
-   
+
    addRecipe(e){
       e.preventDefault();
-      console.log(this);
       let id = Math.floor((Math.random() * 100) + 1);
       let recipeName = this.refs.recipeName.value;
       let ingredients = this.refs.ingredients.value.split(',');
       this.setState({
        recipes: this.state.recipes.concat({id, recipeName, ingredients})
       });
+      this.props.addRecipeToState({id, recipeName, ingredients})
    }
 
    render(){
@@ -55,3 +55,5 @@ let ingredientList;
      );
    }
 }
+
+export default RecipeForm;
