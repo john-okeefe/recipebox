@@ -31,15 +31,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {console.log(this.state)}
+        // {console.log(this.state)}
         <div className="recipes">
           <RecipeList recipes={this.state.recipes} />
           <button>Add Recipe</button>
         </div>
         <RecipeForm addRecipeToState={(id, recipeName, ingredients) => {
-            console.log(this)
            return this.setState({
-              recipes: this.state.recipes.concat({ id, recipeName, ingredients })
+              recipes: this.state.recipes.concat(id)
             })} } />
       </div>
     );

@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 // import RecipeName from './recipe-name'
 // import IngredientsInput from './ingredients-input'
-let text = "";
-let stateArr = [];
-let ingredientList;
 
  class RecipeForm extends Component {
 
    addRecipe(e){
       e.preventDefault();
-      let id = Math.floor((Math.random() * 100) + 1);
+      let id = Math.floor((Math.random() * 100) + 1).toString();
       let recipeName = this.refs.recipeName.value;
       let ingredients = this.refs.ingredients.value.split(',');
       this.props.addRecipeToState({id, recipeName, ingredients})
