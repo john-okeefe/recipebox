@@ -6,29 +6,12 @@ let stateArr = [];
 let ingredientList;
 
  class RecipeForm extends Component {
-   constructor(props){
-     super(props);
-     this.state = {
-      recipes: [
-        {
-         id: "",
-         recipeName: "",
-         ingredients: []
-        }
-       ]
-     };
-
-     // this.handleSubmit = this.handleSubmit.bind(this);
-   }
 
    addRecipe(e){
       e.preventDefault();
       let id = Math.floor((Math.random() * 100) + 1);
       let recipeName = this.refs.recipeName.value;
       let ingredients = this.refs.ingredients.value.split(',');
-      this.setState({
-       recipes: this.state.recipes.concat({id, recipeName, ingredients})
-      });
       this.props.addRecipeToState({id, recipeName, ingredients})
    }
 
